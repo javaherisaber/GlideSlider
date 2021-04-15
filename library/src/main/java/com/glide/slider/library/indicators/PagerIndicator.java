@@ -126,7 +126,7 @@ public class PagerIndicator extends LinearLayout implements ViewPagerEx.OnPageCh
         mUserSetUnSelectedIndicatorResId = attributes.getResourceId(R.styleable.PagerIndicator_unselected_drawable,
                 0);
 
-        int resColor = ContextCompat.getColor(context, R.color.glide_slider_indicator_color);
+        int resColor = attributes.getResourceId(R.styleable.PagerIndicator_tint, ContextCompat.getColor(context, R.color.glide_slider_indicator_color));
         int r = Color.red(resColor);
         int g = Color.green(resColor);
         int b = Color.blue(resColor);
