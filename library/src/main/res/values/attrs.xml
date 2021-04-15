@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="SliderLayout">
         <attr name="sliderBackground" format="color" />
+        <attr name="pagerIndicatorTint" format="color" />
         <attr name="auto_cycle" format="boolean" />
         <attr name="pager_animation_span" format="integer" />
 

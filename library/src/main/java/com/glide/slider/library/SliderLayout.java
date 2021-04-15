@@ -2,7 +2,10 @@ package com.glide.slider.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Message;
+
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -99,7 +102,7 @@ public class SliderLayout extends RelativeLayout {
      * {@link com.glide.slider.library.tricks.ViewPagerEx} indicator.
      */
     private PagerIndicator mIndicator;
-
+    private int indicatorTint;
 
     /**
      * A timer and a TimerTask using to cycle the {@link com.glide.slider.library.tricks.ViewPagerEx}.
@@ -172,6 +175,7 @@ public class SliderLayout extends RelativeLayout {
         int mTransformerSpan = attributes.getInteger(R.styleable.SliderLayout_pager_animation_span, 1100);
         int mTransformerId = attributes.getInt(R.styleable.SliderLayout_pager_animation, Transformer.Default.ordinal());
         mAutoCycle = attributes.getBoolean(R.styleable.SliderLayout_auto_cycle, true);
+        indicatorTint = attributes.getColor(R.styleable.SliderLayout_pagerIndicatorTint, ContextCompat.getColor(context, R.color.glide_slider_indicator_color));
         int visibility = attributes.getInt(R.styleable.SliderLayout_indicator_visibility, 0);
         for (PagerIndicator.IndicatorVisibility v : PagerIndicator.IndicatorVisibility.values()) {
             if (v.ordinal() == visibility) {
@@ -223,6 +227,12 @@ public class SliderLayout extends RelativeLayout {
             mIndicator.destroySelf();
         }
         mIndicator = indicator;
+        int r = Color.red(indicatorTint);
+        int g = Color.green(indicatorTint);
+        int b = Color.blue(indicatorTint);
+        int defaultSelectedColor = Color.rgb(r, g, b);
+        int defaultUnselectedColor = Color.argb(33, r, g, b);
+        mIndicator.setDefaultIndicatorColor(defaultSelectedColor, defaultUnselectedColor);
         mIndicator.setIndicatorVisibility(mIndicatorVisibility);
         mIndicator.setViewPager(mViewPager);
         mIndicator.redraw();
