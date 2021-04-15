@@ -51,7 +51,7 @@ public abstract class BaseSliderView {
     private boolean isProgressBarVisible = false;
 
     private View targetImageView;
-    private View view;
+    private int viewBackgroundColor;
 
     /**
      * Ctor
@@ -183,7 +183,7 @@ public abstract class BaseSliderView {
     }
 
     public void setBackgroundColor(@ColorInt int color) {
-        this.view.setBackgroundColor(color);
+        this.viewBackgroundColor = color;
     }
 
     /**
@@ -194,7 +194,7 @@ public abstract class BaseSliderView {
      */
     protected void bindEventAndShow(final View v, AppCompatImageView targetImageView) {
         this.targetImageView = targetImageView;
-        this.view = v;
+        v.setBackgroundColor(this.viewBackgroundColor);
         final BaseSliderView me = this;
 
         v.setOnClickListener(new View.OnClickListener() {
