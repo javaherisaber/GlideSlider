@@ -103,6 +103,7 @@ public class SliderLayout extends RelativeLayout {
      */
     private PagerIndicator mIndicator;
     private int indicatorTint;
+    private int sliderBackgroundColor;
 
     /**
      * A timer and a TimerTask using to cycle the {@link com.glide.slider.library.tricks.ViewPagerEx}.
@@ -176,6 +177,7 @@ public class SliderLayout extends RelativeLayout {
         int mTransformerId = attributes.getInt(R.styleable.SliderLayout_pager_animation, Transformer.Default.ordinal());
         mAutoCycle = attributes.getBoolean(R.styleable.SliderLayout_auto_cycle, true);
         indicatorTint = attributes.getColor(R.styleable.SliderLayout_pagerIndicatorTint, ContextCompat.getColor(context, R.color.glide_slider_indicator_color));
+        sliderBackgroundColor = attributes.getColor(R.styleable.SliderLayout_sliderBackground, ContextCompat.getColor(context, R.color.glide_slider_background_color));
         int visibility = attributes.getInt(R.styleable.SliderLayout_indicator_visibility, 0);
         for (PagerIndicator.IndicatorVisibility v : PagerIndicator.IndicatorVisibility.values()) {
             if (v.ordinal() == visibility) {
@@ -239,6 +241,8 @@ public class SliderLayout extends RelativeLayout {
     }
 
     public <T extends BaseSliderView> void addSlider(T imageContent) {
+        BaseSliderView slider = (BaseSliderView) imageContent;
+        slider.setBackgroundColor(sliderBackgroundColor);
         mSliderAdapter.addSlider(imageContent);
     }
 

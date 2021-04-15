@@ -6,7 +6,6 @@
 
     <RelativeLayout
         android:id="@+id/glide_slider_background"
-        android:background="?sliderBackground"
         style="@style/GlideSliderBackgroundStyle">
 
         <androidx.appcompat.widget.AppCompatImageView

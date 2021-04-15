@@ -3,8 +3,11 @@ package com.glide.slider.library.slidertypes;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -48,6 +51,7 @@ public abstract class BaseSliderView {
     private boolean isProgressBarVisible = false;
 
     private View targetImageView;
+    private View view;
 
     /**
      * Ctor
@@ -178,6 +182,10 @@ public abstract class BaseSliderView {
         return this;
     }
 
+    public void setBackgroundColor(@ColorInt int color) {
+        this.view.setBackgroundColor(color);
+    }
+
     /**
      * When you want to implement your own slider view, please call this method in the end in `getView()` method
      *
@@ -186,6 +194,7 @@ public abstract class BaseSliderView {
      */
     protected void bindEventAndShow(final View v, AppCompatImageView targetImageView) {
         this.targetImageView = targetImageView;
+        this.view = v;
         final BaseSliderView me = this;
 
         v.setOnClickListener(new View.OnClickListener() {
