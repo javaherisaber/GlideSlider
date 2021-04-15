@@ -194,7 +194,8 @@ public abstract class BaseSliderView {
      */
     protected void bindEventAndShow(final View v, AppCompatImageView targetImageView) {
         this.targetImageView = targetImageView;
-        v.setBackgroundColor(this.viewBackgroundColor);
+        View background = v.findViewById(R.id.glide_slider_background);
+        background.setBackgroundColor(this.viewBackgroundColor);
         final BaseSliderView me = this;
 
         v.setOnClickListener(new View.OnClickListener() {
