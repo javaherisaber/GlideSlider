@@ -1,7 +1,6 @@
-[![](https://jitpack.io/v/firdausmaulan/glideslider.svg)](https://jitpack.io/#firdausmaulan/glideslider)
+[![](https://jitpack.io/v/javaherisaber/GlideSlider.svg)](https://jitpack.io/#javaherisaber/GlideSlider)
 
-- Edited from https://github.com/daimajia/AndroidImageSlider
-- Change image loader from Picasso to Glide
+- Edited from https://github.com/firdausmaulan/GlideSlider
  
 ## Demo
 
@@ -13,18 +12,9 @@
 
 #### Gradle
 
-add jitpack.io
+add jitpack.io to project level gradle
 
 ```groovy
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
-    }
-}
 
 allprojects {
     repositories {
@@ -38,15 +28,12 @@ allprojects {
 }
 ```
 
-add GlideSlider
+add GlideSlider to app level gradle
 
 ```groovy
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation "com.github.bumptech.glide:glide:4.9.0"
-    annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
-    
-    implementation "com.github.firdausmaulan:GlideSlider:1.5.1"
+    // ...    
+    implementation "com.github.javaherisaber:GlideSlider:$glide_slider_version"
 }
 ```
 
